@@ -474,7 +474,7 @@
           timeSelector.__vue__.handleFocus();
           setTimeout(() => {
               document.querySelector(".el-picker-panel__content").querySelectorAll(".time-select-item")[timeArray.indexOf(selectedArchive.time)].click();
-          }, 100);
+          }, 500);
           let inputEvent = new Event('input', {
               bubbles: true,
               cancelable: true
@@ -487,7 +487,7 @@
           document.querySelector(".el-button.el-button--primary.el-button--small.is-plain").click();
           setTimeout(() => {
               document.querySelectorAll(".contactItemMsg")[parseInt(selectedArchive.phoneIndex) - 1].click();
-          }, 100);
+          }, 500);
       }
   }
 
@@ -500,6 +500,6 @@
       setTimeout(function() {
           console.log('filling');
           fillAction(form);
-      }, 100);
+      }, 500);
   }
 })();
