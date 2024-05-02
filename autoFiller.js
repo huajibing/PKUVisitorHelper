@@ -367,7 +367,7 @@
           container.remove();
           setTimeout(() => {
               fillAction(document.querySelector('form'));
-          }, 100);
+          }, 500);
       });
 
       dateSelect.addEventListener('click', () => {
