@@ -1,6 +1,9 @@
 // ==UserScript==
 // @name         PKU Visitor Helper - 自动填写访客申请
-// @match        https://simso.pku.edu.cn/pages/sadEpiVisitorAppt.html
+// @version      2024-05-02
+// @description  PKU学生预约访客的自动填写插件
+// @author       huajibing
+// @match        https://simso.pku.edu.cn/pages/sadEpiVisitorAppt.html*
 // @grant        none
 // ==/UserScript==
 
