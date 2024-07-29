@@ -35,7 +35,7 @@
       }
   }
   timeArray.pop();
-  const gateArray = ['西南门', '东侧门', '东南门', '小东门', '南门', '万柳', '畅春新园'];
+  const gateArray = ['东侧门', '东南门', '万柳'];
 
   function createFloatingForm() {
       const overlay = document.createElement('div');
@@ -169,13 +169,9 @@
                         <div class="el-scrollbar">
                           <div class="el-select-dropdown__wrap ">
                             <ul class="el-scrollbar__view el-select-dropdown__list">
-                              <li class="el-select-dropdown__item">西南门</li>
                               <li class="el-select-dropdown__item">东侧门</li>
                               <li class="el-select-dropdown__item">东南门</li>
-                              <li class="el-select-dropdown__item">小东门</li>
-                              <li class="el-select-dropdown__item">南门</li>
                               <li class="el-select-dropdown__item">万柳</li>
-                              <li class="el-select-dropdown__item">畅春新园</li>
                             </ul>
                           </div>
                         </div>
@@ -468,7 +464,7 @@
           form.querySelector('input[placeholder="请输入被预约人姓名"]').value = selectedArchive.name;
           form.querySelector('input[placeholder="请输入被预约人证件号"]').value = selectedArchive.idNumber;
           form.querySelector('input[placeholder="请输入被预约人联系电话，11位手机号"]').value = selectedArchive.phone;
-          form.querySelector('textarea').value = selectedArchive.reason;
+          form.querySelectorAll('textarea')[1].value = selectedArchive.reason;
           let dateSelector = document.querySelectorAll(".el-select-dropdown.el-popper")[0];
           let gateSelector = document.querySelectorAll(".el-select-dropdown.el-popper")[1];
           let timeSelector = document.querySelector(".el-date-editor.el-input.el-input--prefix.el-input--suffix.el-date-editor--time-select");
@@ -486,7 +482,7 @@
           form.querySelector('input[placeholder="请输入被预约人姓名"]').dispatchEvent(inputEvent);
           form.querySelector('input[placeholder="请输入被预约人证件号"]').dispatchEvent(inputEvent);
           form.querySelector('input[placeholder="请输入被预约人联系电话，11位手机号"]').dispatchEvent(inputEvent);
-          form.querySelector('textarea').dispatchEvent(inputEvent);
+          form.querySelectorAll('textarea')[1].dispatchEvent(inputEvent);
           document.querySelector(".el-button.el-button--primary.el-button--small.is-plain").click();
           setTimeout(() => {
               document.querySelectorAll(".contactItemMsg")[parseInt(selectedArchive.phoneIndex) - 1].click();
