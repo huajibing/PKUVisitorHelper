@@ -461,19 +461,22 @@
           selectedArchive
       } = window.getAutoFillAndSelectedArchive();
       if (autoFill) {
-          form.querySelector('input[placeholder="请输入被预约人姓名"]').value = selectedArchive.name;
-          form.querySelector('input[placeholder="请输入被预约人证件号"]').value = selectedArchive.idNumber;
-          form.querySelector('input[placeholder="请输入被预约人联系电话，11位手机号"]').value = selectedArchive.phone;
+          // form.querySelector('input[placeholder="请输入被预约人姓名"]').value = selectedArchive.name;
+          // form.querySelector('input[placeholder="请输入被预约人证件号"]').value = selectedArchive.idNumber;
+          // form.querySelector('input[placeholder="请输入被预约人联系电话，11位手机号"]').value = selectedArchive.phone;
+          form.querySelectorAll('textarea')[0].value = selectedArchive.name + ' ' + selectedArchive.idNumber + ' ' + selectedArchive.phone;
           form.querySelectorAll('textarea')[1].value = selectedArchive.reason;
           let dateSelector = document.querySelectorAll(".el-select-dropdown.el-popper")[0];
           let gateSelector = document.querySelectorAll(".el-select-dropdown.el-popper")[1];
           let timeSelector = document.querySelector(".el-date-editor.el-input.el-input--prefix.el-input--suffix.el-date-editor--time-select");
           dateSelector.querySelectorAll(".el-select-dropdown__item")[dateArray.indexOf(selectedArchive.date)].click();
           gateSelector.querySelectorAll(".el-select-dropdown__item")[gateArray.indexOf(selectedArchive.gate)].click();
-          timeSelector.__vue__.handleFocus();
           setTimeout(() => {
-              document.querySelector(".el-picker-panel__content").querySelectorAll(".time-select-item")[timeArray.indexOf(selectedArchive.time)].click();
-          }, 500);
+            timeSelector.__vue__.handleFocus();
+            setTimeout(() => {
+                document.querySelector(".el-picker-panel__content").querySelectorAll(".time-select-item")[timeArray.indexOf(selectedArchive.time)].click();
+            }, 500);
+          }, 600);
           let inputEvent = new Event('input', {
               bubbles: true,
               cancelable: true
@@ -482,8 +485,10 @@
           form.querySelector('input[placeholder="请输入被预约人姓名"]').dispatchEvent(inputEvent);
           form.querySelector('input[placeholder="请输入被预约人证件号"]').dispatchEvent(inputEvent);
           form.querySelector('input[placeholder="请输入被预约人联系电话，11位手机号"]').dispatchEvent(inputEvent);
+          form.querySelectorAll('textarea')[0].dispatchEvent(inputEvent);
           form.querySelectorAll('textarea')[1].dispatchEvent(inputEvent);
           document.querySelector(".el-button.el-button--primary.el-button--small.is-plain").click();
+          form.querySelector('button.el-button.el-button--success.el-button--small').click();
           setTimeout(() => {
               document.querySelectorAll(".contactItemMsg")[parseInt(selectedArchive.phoneIndex) - 1].click();
           }, 500);
